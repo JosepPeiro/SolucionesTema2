@@ -87,45 +87,37 @@ package.check <- lapply(packages, FUN = function(x) {
 
 1. Un repositorio de datos muy utilizado es *UCI Machine Learning Repository* [https://archive.ics.uci.edu/ml](https://archive.ics.uci.edu/ml).  
     a. Examina el repositorio y busca la información disponible de conjunto de datos  **Wine Quality Dataset**. Indica el número de variables (*attributes*) y cuántos registros (*Instances*) contiene. 
-    a. Relaciona la información disponible (Metadata-codebook) con un Codebook ideal. ¿De que elementos, indicados en el *codebook ideal* dispones ?
-
-```{r}
-download.file(url='https://archive.ics.uci.edu/ml/machine-learning-databases/wine-quality/winequality-red.csv', destfile="wine-quality-red.csv")
-
-b=read.csv2("wine-quality-red.csv")
-```
+    b. Relaciona la información disponible (Metadata-codebook) con un Codebook ideal. ¿De que elementos, indicados en el *codebook ideal* dispones ?
 
 ```{r}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ```
 
+```{r}
+rojo=read.csv2("wine-quality-red.csv")
+blanco=read.csv2("wine-quality-white.csv")
+#nombres=read.csv2("wine-names.csv")
+```
+
+1.a)
+  Si vemos la pagina de UCI Machine Learning encontramos que solo aparecen las instancias de 1 de los 2 datasets. Concretamente del dataset white-wine. Del que encontramos 4898 instancias y 12 atributos.
+  Sin embargo, curiosamente del dataset de red-wine no encontramos la informacion de las instancias, que si observamos el archivo descargado son 1599. Pero sí el de los atributos, que son los mismos que en white-wine y son 12.
+  
+1.b)
+  
+  Dentro del codebook de la pagina web  encontramos:
+  - Nombre del dataset -> Wine Quality Data Set
+  - Una descripcion del contenido del dataset -> Data Set Information
+  - Las dimensiones de un dataset
+          Numero de observaciones del un dataset -> Number of Instances:4898
+          Numero de variables -> Number of Attributes: 12
+  - Nombre de las variables -> Attribute Information
+  
+  Que son apenas las 4 primeras partes del codebook ideal de 20 elementos
 
 2. El conjunto de datos **Wine Quality Dataset** está dividido en varios ficheros. Un fichero de texto *winequality.names* y dos ficheros con formato **CSV**. Uno para los vinos blancos y otro para los tintos. Usa la función **download.file**, descarga el fichero de texto y cárgalo realizando una lectura línea a línea. ¿Cuántas y cuáles son las variables medidas?. ¿Es posible localizar las variables automáticamente ?
 
 ```{r}
-
-
 
 
 ```
