@@ -90,16 +90,11 @@ package.check <- lapply(packages, FUN = function(x) {
     a. Relaciona la información disponible (Metadata-codebook) con un Codebook ideal. ¿De que elementos, indicados en el *codebook ideal* dispones ?
 
 ```{r}
+download.file(url='https://archive.ics.uci.edu/ml/machine-learning-databases/wine-quality/winequality-red.csv', destfile="wine-quality-red.csv")
 
-
-
-
-
-
-
-
-
+b=read.csv2("wine-quality-red.csv")
 ```
+
 ```{r}
 
 
