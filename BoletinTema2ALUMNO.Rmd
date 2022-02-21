@@ -90,13 +90,9 @@ package.check <- lapply(packages, FUN = function(x) {
     b. Relaciona la información disponible (Metadata-codebook) con un Codebook ideal. ¿De que elementos, indicados en el *codebook ideal* dispones ?
 
 ```{r}
-
 ```
 
 ```{r}
-rojo=read.csv2("wine-quality-red.csv")
-blanco=read.csv2("wine-quality-white.csv")
-#nombres=read.csv2("wine-names.csv")
 ```
 
 1.a)
@@ -118,16 +114,35 @@ blanco=read.csv2("wine-quality-white.csv")
 2. El conjunto de datos **Wine Quality Dataset** está dividido en varios ficheros. Un fichero de texto *winequality.names* y dos ficheros con formato **CSV**. Uno para los vinos blancos y otro para los tintos. Usa la función **download.file**, descarga el fichero de texto y cárgalo realizando una lectura línea a línea. ¿Cuántas y cuáles son las variables medidas?. ¿Es posible localizar las variables automáticamente ?
 
 ```{r}
-
-
+download.file(url='https://archive.ics.uci.edu/ml/machine-learning-databases/wine-quality/winequality-red.csv', destfile="wine-quality-red.csv")
+download.file(url="https://archive.ics.uci.edu/ml/machine-learning-databases/wine-quality/winequality-white.csv", destfile="wine-quality-white.csv")
+download.file("https://archive.ics.uci.edu/ml/machine-learning-databases/wine-quality/winequality.names", destfile="wine-names.txt")
 ```
- 
  
 ```{r}
+rojo=read.csv2("wine-quality-red.csv", header=T)
+blanco=read.csv2("wine-quality-white.csv", header=T)
+nombres=read.delim("wine-names.txt", header=FALSE, dec=".")
+```
 
+```{r}
+dim(rojo)
+colnames(rojo)
+dim(blanco)
+colnames(blanco)
+```
 
+2)
+  Como es facil de observar, el dataset del vino tinto tiene 1599 registros y 12 variables. Y el nombre de estas se puede obtener automaticamente mediante colnames si estamos seguros de que el nombre de las variables se encuentra encima de las columnas.
+  El nombre de las 12 variables es:
+  
+```{r}
+for (i in 1:length(colnames(blanco))){
+  print(paste("-", i, colnames(blanco)[i]))
+}
 
 ```
+
  
 3. Este ejercicio es una continuación de los anteriores, donde trabajamos con el mismo conjunto de datos. Realiza las siguientes tareas: 
 
